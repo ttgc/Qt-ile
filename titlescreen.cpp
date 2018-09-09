@@ -94,6 +94,7 @@ void TitleScreen::launchGame()
 void TitleScreen::updateGame()
 {
     game_container->checkCollision(player);
+    player->increaseScore(game_container->getSpeed()*10);
 }
 
 void TitleScreen::endGame()
