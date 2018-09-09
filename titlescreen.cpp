@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <iostream>
 #include "titlescreen.h"
 #define HIGH_SCORE_MAX 10
 #define BUTTON_FONT "AutoREALM Mentelin"
@@ -55,7 +54,6 @@ TitleScreen::~TitleScreen()
 
 void TitleScreen::showTitleScreen()
 {
-    cout << "showtitlescreen" << endl;
     stringstream builder("");
     for (unsigned int i(0);i<HIGH_SCORE_MAX;i++)
     {
@@ -72,7 +70,6 @@ void TitleScreen::showTitleScreen()
 
 void TitleScreen::launchGame()
 {
-    cout << "launchgame" << endl;
     QString pseudo = pseudo_field->text();
     if (pseudo == "")
     {
@@ -99,7 +96,6 @@ void TitleScreen::updateGame()
 
 void TitleScreen::endGame()
 {
-    cout << "endgame" << endl;
     game_container->stopTicking();
     if (player->getScore() > ranking[HIGH_SCORE_MAX-1]->getScore())
     {

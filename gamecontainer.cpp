@@ -64,18 +64,19 @@ void GameContainer::stopTicking()
 void GameContainer::generate()
 {
     int luck(rand()%100);
-    if (luck < 35)
+    if (luck < 70)
     {
         int lane(rand()%3);
         QRect* hitbox = new QRect();
         bool invalid(false);
-        hitbox->setRect(lane*250,0,250,64);
+        hitbox->setRect(0,0,800,128);
         int id(-1);
         for (unsigned int i(0);i<obstacles.size();i++)
         {
-            if (obstacles[i]->geometry().contains(*hitbox,false))
+            if (hitbox->contains(obstacles[i]->geometry(),false))
             {
                 invalid = true;
+                break;
             }
             if (obstacles[i]->isHidden())
             {
@@ -85,6 +86,7 @@ void GameContainer::generate()
         if (!invalid && id >= 0)
         {
             obstacles[id]->setHidden(false);
+            hitbox->setRect(lane*250,0,250,64);
             obstacles[id]->setGeometry(*hitbox);
         }
         else
