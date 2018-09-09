@@ -16,6 +16,7 @@ class Player : public QLabel, public StoredPlayer
         void kill();
         void resetScore();
         void setPseudo(std::string const& new_pseudo) {pseudo = new_pseudo;}
+        Lane getPosition() const {return position;}
     public slots:
         void redraw();
     signals:

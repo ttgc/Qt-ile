@@ -27,9 +27,11 @@ SOURCES += \
         main.cpp \
         titlescreen.cpp \
     player.cpp \
-    storedplayer.cpp
+    storedplayer.cpp \
+    gamecontainer.cpp
 
 HEADERS += \
         titlescreen.h \
     player.h \
-    storedplayer.h
+    storedplayer.h \
+    gamecontainer.h

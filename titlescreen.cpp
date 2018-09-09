@@ -35,7 +35,7 @@ TitleScreen::TitleScreen(QWidget *parent) : QWidget(parent)
     high_scores->setFont(QFont(LABEL_FONT,14));
     high_scores->setAlignment(Qt::AlignCenter);
 
-    game_container = new QFrame(this);
+    game_container = new GameContainer(this);
     player = new Player(game_container,"Anonymous");
     connect(player,SIGNAL(dead()),this,SLOT(endGame()));
     connect(player,SIGNAL(changedLane()),player,SLOT(redraw()));
@@ -88,11 +88,18 @@ void TitleScreen::launchGame()
     player->setGeometry(250,550,249,45);
     player->setFocusPolicy(Qt::StrongFocus);
     player->setFocus();
+    game_container->startTicking();
+}
+
+void TitleScreen::updateGame()
+{
+    game_container->checkCollision(player);
 }
 
 void TitleScreen::endGame()
 {
     cout << "endgame" << endl;
+    game_container->stopTicking();
     if (player->getScore() > ranking[HIGH_SCORE_MAX-1]->getScore())
     {
         bool inserted(false);

@@ -2,6 +2,7 @@
 #define TITLESCREEN_H
 #include "storedplayer.h"
 #include "player.h"
+#include "gamecontainer.h"
 #include <QtWidgets>
 
 class TitleScreen : public QWidget
@@ -15,13 +16,14 @@ class TitleScreen : public QWidget
 
     public slots:
         void launchGame();
+        void updateGame();
         void endGame();
 
     private:
         QPushButton* play_button;
         QLineEdit* pseudo_field;
         QLabel* high_scores;
-        QFrame* game_container;
+        GameContainer* game_container;
         Player* player;
         std::vector<StoredPlayer*> ranking;
 };
