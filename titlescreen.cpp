@@ -10,7 +10,7 @@ using namespace std;
 
 TitleScreen::TitleScreen(QWidget *parent) : QWidget(parent)
 {
-    //setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/logo.png"));
+    setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/logo.png"));
     setWindowTitle("Qt-ile");
     setFixedSize(800,600);
 

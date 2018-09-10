@@ -27,7 +27,7 @@ GameContainer::GameContainer(QWidget *parent): QFrame(parent),speed(1.0),delta(0
 
 void GameContainer::increaseSpeed()
 {
-    if (speed < 4.0)
+    if (speed < 10.0)
     {
         speed += 0.1;
     }

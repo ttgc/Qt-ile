@@ -1,12 +1,16 @@
 #include <QKeyEvent>
+#include <QCoreApplication>
 #include <string>
+#include <iostream>
 #include "player.h"
 
 using namespace std;
 
 Player::Player(QWidget *parent, string const& name):QLabel(parent),StoredPlayer(name),position(MIDDLE)
 {
-    //setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/player.png"));
+    setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/player-image.png"));
+    //setText("bidule");
+    setAlignment(Qt::AlignCenter);
 }
 
 void Player::increaseScore(int value)

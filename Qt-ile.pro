@@ -35,3 +35,7 @@ HEADERS += \
     player.h \
     storedplayer.h \
     gamecontainer.h
+
+DISTFILES += \
+    logo.png \
+    player-image.png
